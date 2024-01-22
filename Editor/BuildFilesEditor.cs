@@ -5,7 +5,7 @@ namespace BuildFiles.Editor
 {
     public static class BuildFilesEditor
     {
-        [MenuItem("Automated Build Settings/ %r")]
+        [MenuItem("Tools/Automated Build Settings")]
         public static void EditSettings()
         {
             var settings = Resources.Load<AutomatedBuildConfig>("AutomatedBuildConfig");
