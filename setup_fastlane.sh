@@ -4,6 +4,23 @@ echo "Build Path: $BUILD_PATH"
 
 FASTLANE_DIR="$BUILD_PATH/fastlane"
 
+# Import the P12 file into the keychain
+echo "Importing P12 File: $FASTLANE_P12_FILE"
+security import "$FASTLANE_P12_FILE" -k ~/Library/Keychains/login.keychain-db -P 123456 -T /usr/bin/codesign
+
+# Verify the import of P12
+echo "Verifying P12 import:"
+security find-identity -p codesigning -v
+
+# Copy the provisioning profile to the correct directory
+echo "Copying provisioning profile: $FASTLANE_PROVISIONING_PROFILE_PATH"
+cp "$FASTLANE_PROVISIONING_PROFILE_PATH" ~/Library/MobileDevice/Provisioning\ Profiles/
+
+# Verify the copy of the provisioning profile
+echo "Copied provisioning profiles:"
+ls ~/Library/MobileDevice/Provisioning\ Profiles/
+
+# Setup Fastlane directory and Fastfile if not exists
 if [ ! -d "$FASTLANE_DIR" ]; then
     mkdir -p "$FASTLANE_DIR"
     touch "$FASTLANE_DIR/Fastfile"
