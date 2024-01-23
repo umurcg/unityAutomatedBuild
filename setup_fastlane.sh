@@ -1,11 +1,12 @@
 #!/bin/bash
 BUILD_PATH=$1
+FASTLANE_P12_FILE=$2
+FASTLANE_PROVISIONING_PROFILE_PATH=$3
 echo "Build Path: $BUILD_PATH"
 
 # Echo the paths of the P12 file and provisioning profile
 echo "P12 File Path: $FASTLANE_P12_FILE"
 echo "Provisioning Profile Path: $FASTLANE_PROVISIONING_PROFILE_PATH"
-
 
 FASTLANE_DIR="$BUILD_PATH/fastlane"
 
