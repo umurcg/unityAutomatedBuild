@@ -37,7 +37,7 @@ if [ ! -d "$FASTLANE_DIR" ]; then
     echo "  desc 'Deploy the app to TestFlight/App Store'" >> "$FASTLANE_DIR/Fastfile"
     echo "  lane :deploy do" >> "$FASTLANE_DIR/Fastfile"
     echo "    gym(export_method: 'app-store', project: 'Unity-iPhone.xcodeproj', scheme: 'Unity-iPhone', output_directory: 'builds/'," >> "$FASTLANE_DIR/Fastfile"
-    echo "        codesigning_identity: 'iPhone Distribution', export_options: { provisioningProfiles: { 'com.reboot.flipEmAll': 'flip_Em_All' } })" >> "$FASTLANE_DIR/Fastfile"
+    echo "        codesigning_identity: 'iPhone Distribution', export_options: { provisioningProfiles: { 'com.reboot.flipEmAll': 'FlipEmAll' } })" >> "$FASTLANE_DIR/Fastfile"
     echo "    upload_to_app_store(skip_metadata: true, skip_screenshots: true, skip_binary_upload: false)" >> "$FASTLANE_DIR/Fastfile"
     echo "  end" >> "$FASTLANE_DIR/Fastfile"
     echo "end" >> "$FASTLANE_DIR/Fastfile"
